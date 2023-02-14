@@ -1,3 +1,4 @@
+    # -*- coding: windows-1252 -*-
 import openai
 import requests
 import json
@@ -11,7 +12,7 @@ api_key = config["openai"]["api_key"]
 openai.api_key = api_key
 
 model_engine = "image-alpha-001"
-model_prompt = "superman in the night sky."
+model_prompt = input("Se especifico para generar imágenes de mejor calidad: ")
 
 headers = CaseInsensitiveDict()
 headers["Content-Type"] = "application/json"
@@ -23,7 +24,7 @@ data = """
 data += f'"model": "{model_engine}",'
 data += f'"prompt": "{model_prompt}",'
 data += """
-    "num_images":1,
+    "num_images":4,
     "size":"1024x1024",
     "response_format":"url"
 }
